@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="3.0">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="V15"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2025-09-28 03:22:34 PM"/>
+        <attribute name="created" value="VjE1O0xBUFRPUC1VOEczODBMQjsyMDI1LTA5LTI4OzAyOjEyOjM2IFBNOzI0OTI="/>
+        <attribute name="edited" value="VjE1O0xBUFRPUC1VOEczODBMQjsyMDI1LTA5LTI4OzAzOjIyOjM0IFBNOzE7MjYwMA=="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="nim, data, pilih, biaya, biayaadmin, bronze, silver, gold, platinum" type="Integer" array="False" size=""/>
+            <declare name="israndomirhjrah, datanama, nama" type="String" array="False" size=""/>
+            <assign variable="datanama" expression="&quot;israndomirhjrah&quot;"/>
+            <assign variable="data" expression="2509106093"/>
+            <assign variable="biaya" expression="1500000"/>
+            <output expression="&quot;Masukan Nama:&quot;" newline="True"/>
+            <input variable="nama"/>
+            <output expression="&quot;Masukan Nim:&quot;" newline="True"/>
+            <input variable="nim"/>
+            <if expression="(nama == datanama) and (nim == data)">
+                <then>
+                    <output expression="&quot;Login Berhasil&quot;" newline="True"/>
+                    <output expression="&quot;======Menu Langganan======&quot;" newline="True"/>
+                    <output expression="&quot;Langganan Aplikasi Streaming Musik Seharga Rp 1.500.000&quot;" newline="True"/>
+                    <output expression="&quot;1.Paket Bronze: Biaya administrasi 1%, akses dasar ke lagu-lagu populer&quot;" newline="True"/>
+                    <output expression="&quot;2.Paket Silver: Biaya administrasi 3%, akses lagu premium dan playlist kustom.&quot;" newline="True"/>
+                    <output expression="&quot;3.Paket Gold: Biaya administrasi 5%, akses lagu premium, playlist kustom, dan mode offline.&quot;" newline="True"/>
+                    <output expression="&quot;4.Paket Platinum: Biaya administrasi 7%, akses semua fitur, playlist kustom, mode offline, dan konten eksklusif artis.&quot;" newline="True"/>
+                    <output expression="&quot;Pilih Paket Yang Anda Inginkan:&quot;" newline="True"/>
+                    <input variable="pilih"/>
+                    <if expression="pilih==1">
+                        <then>
+                            <assign variable="biayaadmin" expression="biaya * 1/100"/>
+                            <assign variable="bronze" expression="biaya + biayaadmin"/>
+                            <output expression="&quot;Untuk Harga Paket Bronze Dan Biaya Administrasinya jadi:&quot;&amp;bronze" newline="True"/>
+                            <output expression="&quot;Dengan Keuntungan Akses Dasar Ke Lagu-Lagu Populer.&quot;" newline="True"/>
+                        </then>
+                        <else>
+                            <if expression="pilih==2">
+                                <then>
+                                    <assign variable="biayaadmin" expression="biaya * 3/100"/>
+                                    <assign variable="silver" expression="biaya + biayaadmin"/>
+                                    <output expression="&quot;Untuk Harga Paket Silver Dan Biaya Administrasinya jadi:&quot;&amp;silver" newline="True"/>
+                                    <output expression="&quot;Dengan Keuntungan Akses Lagu Premium Dan Playlist Kustom.&quot;" newline="True"/>
+                                </then>
+                                <else>
+                                    <if expression="pilih==3">
+                                        <then>
+                                            <assign variable="biayaadmin" expression="biaya * 5/100"/>
+                                            <assign variable="gold" expression="biaya + biayaadmin"/>
+                                            <output expression="&quot;Untuk Harga Paket Gold Dan Biaya Administrasinya jadi:&quot;&amp;gold" newline="True"/>
+                                            <output expression="&quot;Dengan Keuntungan Akses Lagu Premium, Playlist Kustom, Dan Mode Offline.&quot;" newline="True"/>
+                                        </then>
+                                        <else>
+                                            <if expression="pilih==4">
+                                                <then>
+                                                    <assign variable="biayaadmin" expression="biaya * 7/100"/>
+                                                    <assign variable="platinum" expression="biaya + biayaadmin"/>
+                                                    <output expression="&quot;Untuk Harga Paket Platinum Dan Biaya Administrasinya jadi:&quot;&amp;platinum" newline="True"/>
+                                                    <output expression="&quot;Dengan Keuntungan Akses Semua Fitur, Playlist Kustom, Mode Offline, Dan Konten Eksklusif Artis.&quot;" newline="True"/>
+                                                </then>
+                                                <else>
+                                                    <output expression="&quot;Opsi Yang Anda Pilih Tidak Ada&quot;" newline="True"/>
+                                                </else>
+                                            </if>
+                                        </else>
+                                    </if>
+                                </else>
+                            </if>
+                        </else>
+                    </if>
+                </then>
+                <else>
+                    <output expression="&quot;Login Gagal Coba Lagi&quot;" newline="True"/>
+                </else>
+            </if>
+        </body>
+    </function>
+</flowgorithm>
