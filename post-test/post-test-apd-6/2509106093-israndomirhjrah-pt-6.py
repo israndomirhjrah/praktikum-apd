@@ -1,9 +1,9 @@
-pengguna=[]
-pemain = [
-    ["lamine yamal", 100000],
-    ["lewandowski", 50000],
-    ["raphinha", 80000]
-]
+pengguna={}
+pemain = {
+    "lamine yamal": 100000,
+    "lewandowski": 50000,
+    "raphinha": 80000
+}
 
 club= "barcelona"
  
@@ -33,15 +33,13 @@ while True:
             else:
                 print("role tidak ada. Silakan masukkan 'admin' atau 'pengguna'.")
         
-        akunterdaftar = False
-        for data_akun in pengguna:
-         if data_akun[0]== user: 
-          akunterdaftar = True
+          
+        akunterdaftar = user in pengguna
           
         if akunterdaftar:
              print("User Sudah Ada Yang Pake Coba Lagi Yang lain")    
         else:  
-             pengguna.append([user, password, role])
+             pengguna[user]={"password":password,"role":role}
              print("Registrasi berhasil!")
           
          
@@ -72,30 +70,42 @@ while True:
                  print("=======Menu Menambahkan Pemain=======")
                  tambah_pemain=input("Tambahkan Pemain:")
                  tambah_harga=int(input("Masukan Harga Beli:"))
-                 pemain.append([tambah_pemain,tambah_harga])
-                 for i in range(len(pemain)):
-                   print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
+                 pemain.update({tambah_pemain : tambah_harga})
+                 angka=1
+                 for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
                elif pilih == 2:
                  print("=======Menu Update Harga Pemain======")
-                 for i in range(len(pemain)):
-                   print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
-                 idx = int(input("Masukkan urutan ke berapa harga pemain yang ingin diubah: "))
+                 angka=1
+                 for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
+                 idx = input("Masukkan nama pemain: ")
                  harga_baru = int(input("Masukkan harga baru: "))
-                 pemain[idx][1] = harga_baru
-                 for i in range(len(pemain)):
-                   print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
+                 pemain[idx] = harga_baru
+                 angka=1
+                 for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
                elif pilih == 3:
                   print("=======Menu Hapus Pemain======")
-                  for i in range(len(pemain)):
-                   print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
-                  hapus_pemain=int(input("Masukan Urutan Pemain:"))
+                  angka=1
+                  for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
+                  hapus_pemain=(input("Masukan Pemain:"))
                   del pemain [hapus_pemain]
-                  for i in range(len(pemain)):
-                   print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
+                  angka=1
+                  for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
                elif pilih == 4:
                   print("========DATA PEMAIN=======")
-                  for i in range(len(pemain)):
-                   print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
+                  angka=1
+                  for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
                elif pilih == 5:
                   print("Anda Tekeluar Dari Aplikasi")
                   exit()
@@ -120,16 +130,20 @@ while True:
                 pilih=int(input("Masukan Pilihan di Salah Satu Di Menu:")) 
                 if pilih == 1:
                   print("========DATA PEMAIN=======")
-                  for i in range(len(pemain)):
-                   print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
+                  angka=1
+                  for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
 
                 elif pilih == 2:
-                    print("=======Menu Menambahkan Pemain=======")
-                    tambah_pemain=input("Tambahkan Pemain:")
-                    tambah_harga=int(input("Masukan Harga Beli:"))
-                    pemain.append([tambah_pemain,tambah_harga])
-                    for i in range(len(pemain)):
-                     print(f"{i+1}. {pemain[i][0]} - euro{pemain[i][1]} - club:{club}")
+                 print("=======Menu Menambahkan Pemain=======")
+                 tambah_pemain=input("Tambahkan Pemain:")
+                 tambah_harga=int(input("Masukan Harga Beli:"))
+                 pemain.update({tambah_pemain : tambah_harga})
+                 angka=1
+                 for i, j in  pemain.items():
+                    print(f"{angka}. {i} - euro{j} - club:{club}")
+                    angka +=1
                 elif pilih == 3:
                    print("Anda Keluar program")
                    exit()
